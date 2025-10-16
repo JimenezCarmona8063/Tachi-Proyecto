@@ -1,10 +1,12 @@
 # Tachi-Proyecto
 
 Simulador en Python de la vida diaria dentro de la Universidad Panamericana.
-Permite elegir distintos tipos de personajes (rector, maestros, alumnos y
-empleados) y gestionar sus actividades mediante colas clásicas y de prioridad.
-El mapa del campus se representa como arte ASCII tipo *pixel art* para mantener
-la experiencia completamente en Python.
+Todo el código vive en un único archivo (`tachi_simulador.py`) para facilitar su
+edición o revisión sin navegar por múltiples módulos. Permite elegir distintos
+tipos de personajes (rector, maestros, alumnos y empleados) y gestionar sus
+actividades mediante colas clásicas y de prioridad. El mapa del campus se
+representa como arte ASCII tipo *pixel art* para mantener la experiencia
+completamente en Python.
 
 ## Características
 
@@ -18,14 +20,30 @@ la experiencia completamente en Python.
 
 ## Uso rápido
 
-```python
-from tachi import CharacterType, default_characters, render_pixel_map, simulate_day
+1. Abrir el archivo `tachi_simulador.py` para explorar o modificar el
+   simulador.
+2. Ejecutarlo directamente para ver una demostración rápida:
 
-print(render_pixel_map())
-antonio = default_characters()[CharacterType.RECTOR]
-for evento in simulate_day(antonio):
-    print(evento)
-```
+   ```bash
+   python tachi_simulador.py
+   ```
+
+3. También puede importarse desde otros scripts (el paquete `tachi` se mantiene
+   por compatibilidad):
+
+   ```python
+   from tachi_simulador import (
+       CharacterType,
+       default_characters,
+       render_pixel_map,
+       simulate_day,
+   )
+
+   print(render_pixel_map())
+   antonio = default_characters()[CharacterType.RECTOR]
+   for evento in simulate_day(antonio):
+       print(evento)
+   ```
 
 ## Ejecutar las pruebas
 

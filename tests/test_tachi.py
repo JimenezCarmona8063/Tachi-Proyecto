@@ -1,6 +1,6 @@
 import pytest
 
-from tachi import (
+from tachi_simulador import (
     ActivityType,
     CharacterType,
     choose_character,
