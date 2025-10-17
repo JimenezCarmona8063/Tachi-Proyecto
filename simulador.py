@@ -250,7 +250,23 @@ SPRITES = load_sprites("sprites.png")
 
 
 class Camera:
-    def __init__(self, width: int, height: int, tile: int) -> None:
+    """Maneja la ventana de visualización sobre el mapa de mosaicos."""
+
+    __slots__ = ("width", "height", "tile", "x", "y")
+
+    def __init__(
+        self,
+        width: int = SCREEN_W - PANEL_WIDTH,
+        height: int = SCREEN_H,
+        tile: int = TILE,
+    ) -> None:
+        # Aseguramos compatibilidad con el prototipo original: aunque la clase
+        # se instancie sin argumentos (como ocurre en algunas pruebas externas),
+        # los parámetros se inicializan con valores por defecto equivalentes a
+        # los usados en el módulo.
+        self.configure(width, height, tile)
+
+    def configure(self, width: int, height: int, tile: int) -> None:
         self.width = width
         self.height = height
         self.tile = tile
@@ -267,7 +283,7 @@ class Camera:
         return int((wx - self.x) * self.tile), int((wy - self.y) * self.tile)
 
 
-cam = Camera(SCREEN_W - PANEL_WIDTH, SCREEN_H, TILE)
+cam = Camera()
 
 # ---------------------------------------------------------------------------
 # Mapa exterior
